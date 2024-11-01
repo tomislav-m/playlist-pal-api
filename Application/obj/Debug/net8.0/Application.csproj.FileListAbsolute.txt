@@ -1,0 +1,16 @@
+/home/tmaslac/repos/playlist-generator-api2/Application/bin/Debug/net8.0/Application.deps.json
+/home/tmaslac/repos/playlist-generator-api2/Application/bin/Debug/net8.0/Application.dll
+/home/tmaslac/repos/playlist-generator-api2/Application/bin/Debug/net8.0/Application.pdb
+/home/tmaslac/repos/playlist-generator-api2/Application/bin/Debug/net8.0/Domain.dll
+/home/tmaslac/repos/playlist-generator-api2/Application/bin/Debug/net8.0/Domain.pdb
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.csproj.AssemblyReference.cache
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.AssemblyInfoInputs.cache
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.AssemblyInfo.cs
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.csproj.CoreCompileInputs.cache
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.sourcelink.json
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.csproj.CopyComplete
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.dll
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/refint/Application.dll
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/Application.pdb
+/home/tmaslac/repos/playlist-generator-api2/Application/obj/Debug/net8.0/ref/Application.dll
