@@ -9,12 +9,12 @@ namespace Infrastructure.Spotify;
 public class SpotifyArtistService(IHttpContextAccessor contextAccessor, IMapper mapper)
     : SpotifyBaseService(contextAccessor, mapper), ISpotifyArtistService
 {
-    public async Task<IEnumerable<ArtistDto>> GetArtistsByName(string name, CancellationToken cancellationToken)
+    public async Task<IEnumerable<ArtistSimpleDto>> GetArtistsByName(string name, CancellationToken cancellationToken)
     {
         var response = await SpotifyClient.Search.Item(new SearchRequest(SearchRequest.Types.Artist, name) { Market = MarketUS }, cancellationToken);
         return response.Artists.Items is not null
-            ? Mapper.ProjectTo<ArtistDto>(response.Artists.Items.AsQueryable())
-            : Array.Empty<ArtistDto>();
+            ? Mapper.ProjectTo<ArtistSimpleDto>(response.Artists.Items.AsQueryable())
+            : Array.Empty<ArtistSimpleDto>();
     }
 
     public async Task<IEnumerable<TrackSimpleDto>> GetArtistTopTracks(string artistId, CancellationToken cancellationToken)
@@ -32,10 +32,10 @@ public class SpotifyArtistService(IHttpContextAccessor contextAccessor, IMapper 
     //         : Array.Empty<AlbumDto>();
     // }
 
-    public async Task<IEnumerable<ArtistDto>> GetRelatedArtists(string artistId, CancellationToken cancellationToken)
+    public async Task<IEnumerable<ArtistSimpleDto>> GetRelatedArtists(string artistId, CancellationToken cancellationToken)
     {
         var response = await SpotifyClient.Artists.GetRelatedArtists(artistId, cancellationToken);
 
-        return Mapper.ProjectTo<ArtistDto>(response.Artists.AsQueryable());
+        return Mapper.ProjectTo<ArtistSimpleDto>(response.Artists.AsQueryable());
     }
 }

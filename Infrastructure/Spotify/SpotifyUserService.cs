@@ -10,7 +10,7 @@ namespace Infrastructure.Spotify;
 public class SpotifyUserService(IHttpContextAccessor contextAccessor, IMapper mapper)
     : SpotifyBaseService(contextAccessor, mapper), ISpotifyUserService
 {
-    public async Task<IEnumerable<ArtistDto>> GetUserArtistsHistory(string? timeRange, int limit = 50, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<ArtistSimpleDto>> GetUserArtistsHistory(string? timeRange, int limit = 50, CancellationToken cancellationToken = default)
     {
         var timeRanges = MapTimeRange(timeRange);
 
@@ -28,11 +28,9 @@ public class SpotifyUserService(IHttpContextAccessor contextAccessor, IMapper ma
 
         var topArtists = (await Task.WhenAll(tasks)).SelectMany(x => x.Items!);
 
-        topArtists = topArtists.DistinctBy(x => x.Id)
-            .OrderBy(_ => Guid.NewGuid())
-            .Take(limit);
+        topArtists = topArtists.DistinctBy(x => x.Id).Take(limit);
 
-        return Mapper.ProjectTo<ArtistDto>(topArtists.AsQueryable());
+        return Mapper.ProjectTo<ArtistSimpleDto>(topArtists.AsQueryable());
     }
 
     public async Task<IEnumerable<TrackDto>> GetUserTracksHistory(string? timeRange, int limit = 50, CancellationToken cancellationToken = default)
