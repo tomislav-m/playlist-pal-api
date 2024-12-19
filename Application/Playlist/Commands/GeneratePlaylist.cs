@@ -52,12 +52,6 @@ public class GeneratePlaylist
             {
                 var id = ids[random.Next(ids.Count - 1)];
 
-                if (playlistTracks.Count >= playlistSize / 2)
-                {
-                    await GetRecommendedTracks(playlistTracks, playlistSize, cancellationToken);
-                    break;
-                }
-
                 if (!artistTopTracks.TryGetValue(id, out var tracks))
                 {
                     tracks = (await spotifyArtistService
@@ -72,6 +66,7 @@ public class GeneratePlaylist
             return playlistTracks.Shuffle().Take(playlistSize);
         }
 
+        // deprecated endpoint
         private async Task GetRecommendedTracks(HashSet<TrackSimpleDto> playlistTracks, int playlistSize, CancellationToken cancellationToken)
         {
             var allTrackIds = playlistTracks.Select(x => x.Id).Shuffle().ToList();
