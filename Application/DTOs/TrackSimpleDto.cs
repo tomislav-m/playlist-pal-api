@@ -7,4 +7,6 @@ public record TrackSimpleDto
     public required string ArtistName { get; set; }
     public required string Uri { get; set; }
     public required string AlbumTitle { get; set; }
+    public required string AlbumCover { get; set; }
+    public required int DurationMs { get; set; }
 }

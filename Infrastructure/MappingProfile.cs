@@ -17,6 +17,7 @@ public class MappingProfile : Profile
         CreateMap<FullTrack, TrackSimpleDto>()
             .ForMember(d => d.ArtistName, o => o.MapFrom(s => s.Artists.First().Name))
             .ForMember(d => d.AlbumTitle, o => o.MapFrom(s => s.Album.Name))
+            .ForMember(d => d.AlbumCover, o => o.MapFrom(s => s.Album.Images[0].Url))
             .ForMember(d => d.Title, o => o.MapFrom(s => s.Name));
         
         CreateMap<SimpleArtist, ArtistSimpleDto>()

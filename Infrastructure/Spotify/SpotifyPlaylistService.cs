@@ -17,7 +17,7 @@ public class SpotifyPlaylistService(IHttpContextAccessor contextAccessor, IMappe
             Public = request.IsPublic,
         }, cancellationToken);
 
-        if (request.Tracks.Any())
+        if (request.Tracks.Count != 0)
         {
             foreach (var tracksChunk in request.Tracks.Chunk(100))
             {

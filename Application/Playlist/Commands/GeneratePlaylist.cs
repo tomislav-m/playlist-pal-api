@@ -30,7 +30,7 @@ public class GeneratePlaylist
             {
                 PlaylistName = request.PlaylistName,
                 IsPublic = !request.IsPrivate,
-                Tracks = tracks
+                Tracks = tracks.ToList()
             }, cancellationToken);
 
             return playlist;
