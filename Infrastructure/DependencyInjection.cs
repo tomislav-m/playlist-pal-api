@@ -8,7 +8,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        services.AddAutoMapper(typeof(DependencyInjection));
+        services.AddAutoMapper(_ => {}, typeof(DependencyInjection));
         services.AddHttpContextAccessor();
         
         services.AddScoped<ISpotifyUserService, SpotifyUserService>();
