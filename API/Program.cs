@@ -10,6 +10,8 @@ builder.Services.AddSwaggerGen();
 
 var services = builder.Services;
 
+services.AddHttpClient();
+
 services.AddCors(options =>
 {
     options.AddPolicy(name: "policy",
@@ -24,7 +26,7 @@ services.AddCors(options =>
 services.AddControllers();
 
 services.AddApplication()
-    .AddInfrastructure();
+    .AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
