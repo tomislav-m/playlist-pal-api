@@ -38,7 +38,9 @@ public class AuthController(
         var json = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
+        {
             return BadRequest(json);
+        }
 
         return Content(json, "application/json");
     }
